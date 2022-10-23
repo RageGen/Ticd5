@@ -1,16 +1,45 @@
 #pragma once
 #include "List.hpp"
+string fileErr;
+void InputFile()
+{
+    cout << "Error file: " << endl;
+    cin >> fileErr;
+}
+
 void WriteErrorsIntoFile1() {
-    fstream file;
-    file.open("Errors.txt");
-    file << "WARNING: ERROR! " << "Empty list - 0" ;
-    file.close();
+    fstream file2(fileErr + ".txt");
+    if (file2.fail())
+    {
+        fstream file;
+        file.open("Errors.txt");
+        file << "WARNING: ERROR! " << "Empty list - 0";
+        file.close();
+    }
+    else
+    {
+        fstream file;
+        file.open(fileErr+".txt");
+        file << "WARNING: ERROR! " << "Empty list - 0";
+        file.close();
+    }
 }
 void WriteErrorsIntoFile2() {
-    fstream file;
-    file.open("Errors.txt");
-    file << "WARNING: ERROR! " << "Out of index - 1";
-    file.close();
+    fstream file2(fileErr + ".txt");
+    if (file2.fail())
+    {
+        fstream file;
+        file.open("Errors.txt");
+        file << "WARNING: ERROR! " << "Out of index - 1";
+        file.close();
+    }
+    else
+    {
+        fstream file;
+        file.open(fileErr + ".txt");
+        file << "WARNING: ERROR! " << "Out of index - 1";
+        file.close();
+    }
 }
 void SingleList::AddItem(int _data)
 {

@@ -13,7 +13,9 @@ string fileOtput;
 string fileInput;
 void FilesInput()
 {
+	cout << "Input file: " << endl;
 	cin >> fileInput;
+	cout << "Otput file: " << endl;
 	cin >> fileOtput;
 }
 bool InputDataFromText2(string filename)
@@ -103,13 +105,12 @@ bool InputDataFromText()
 	else
 	{
 		InputDataFromText2(fileInput);
-		ContunieOrNot();
 	}
 	return true;
 }
 bool OutputToFile()
 {
-	fstream file2(fileOtput);
+	fstream file2(fileOtput+".txt");
 	if (file2.fail())
 	{
 		fstream file;
@@ -120,11 +121,11 @@ bool OutputToFile()
 			result->DeleteItem(1);
 		}
 		file.close();
+		ContunieOrNot();
 	}
 	else
 	{
 		OutputToFile2(fileOtput);
-		ContunieOrNot();
 	}
 
 	return true;

@@ -4,6 +4,8 @@ using namespace ZDA;
 int main()
 {
 	FilesInput();
+	InputFile();
+	system("cls");
 	int CheckMenu = 0;
 	const int ItemsNumber = 5;
 	bool RunMenu = true;

@@ -32,3 +32,4 @@ public:
     void PrintListRecurrently(Node*);
     void DeleteList(Node*);
 };
+void InputFile();
