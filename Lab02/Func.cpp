@@ -9,6 +9,46 @@ SingleList* list3 = new SingleList();
 SingleList* list2_reverse = new SingleList();
 SingleList* list3_reverse = new SingleList();
 SingleList* result = new SingleList();
+string fileOtput;
+string fileInput;
+void FilesInput()
+{
+	cin >> fileInput;
+	cin >> fileOtput;
+}
+bool InputDataFromText2(string filename)
+{
+	system("cls");
+	SingleList* listbuf = new SingleList();
+	int buff = 0;
+	int i = 0;
+	ifstream file(filename+".txt");
+	while (!file.eof())
+	{
+		file >> buff;
+		listbuf->AddItem(buff);
+	}
+	file.close();
+	while (!listbuf->IsEmpty()) {
+		list->AddItem(listbuf->GetTop()->data);
+		listbuf->DeleteItem(1);
+	}
+	ContunieOrNot();
+	return true;
+}
+bool OutputToFile2(string filename)
+{
+	fstream file;
+	file.open(filename+".txt");
+	while (!result->IsEmpty()) {
+		auto buf = result->GetTop()->data;
+		file << buf << ' ';
+		result->DeleteItem(1);
+	}
+	file.close();
+	return true;
+}
+
 void ContunieOrNot()
 {
 	int Checker = 0;
@@ -39,34 +79,54 @@ bool DataInputFromKeyboard()
 }
 bool InputDataFromText()
 {
+
 	system("cls");
 	SingleList* listbuf=new SingleList();
 	int buff = 0;
 	int i = 0;
-	ifstream file("1.txt");
-	while (!file.eof())
+	ifstream file2(fileInput+".txt");
+	if (file2.fail())
 	{
-		file >> buff;
-		listbuf->AddItem(buff);
+		ifstream file("1.txt");
+		while (!file.eof())
+		{
+			file >> buff;
+			listbuf->AddItem(buff);
+		}
+		file.close();
+		while (!listbuf->IsEmpty()) {
+			list->AddItem(listbuf->GetTop()->data);
+			listbuf->DeleteItem(1);
+		}
+		ContunieOrNot();
 	}
-	file.close();
-	while (!listbuf->IsEmpty()) {
-		list->AddItem(listbuf->GetTop()->data);
-		listbuf->DeleteItem(1);
+	else
+	{
+		InputDataFromText2(fileInput);
+		ContunieOrNot();
 	}
-	ContunieOrNot();
 	return true;
 }
 bool OutputToFile()
 {
-	fstream file;
-	file.open("Result.txt");
-	while (!result->IsEmpty()) {
-		auto buf = result->GetTop()->data;
-		file << buf<<' ';
-		result->DeleteItem(1);
+	fstream file2(fileOtput);
+	if (file2.fail())
+	{
+		fstream file;
+		file.open("Result.txt");
+		while (!result->IsEmpty()) {
+			auto buf = result->GetTop()->data;
+			file << buf << ' ';
+			result->DeleteItem(1);
+		}
+		file.close();
 	}
-	file.close();
+	else
+	{
+		OutputToFile2(fileOtput);
+		ContunieOrNot();
+	}
+
 	return true;
 }
 bool IndividualQuestions()

@@ -11,3 +11,7 @@ bool IndividualQuestions();
 bool OutputToFile();
 bool InputDataFromText();
 bool PrintData();
+void ContunieOrNot();
+void ZapisOutput(string filename);
+void ZapisInput(string filename);
+void FilesInput();

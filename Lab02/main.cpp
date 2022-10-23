@@ -3,6 +3,7 @@ using namespace std;
 using namespace ZDA;
 int main()
 {
+	FilesInput();
 	int CheckMenu = 0;
 	const int ItemsNumber = 5;
 	bool RunMenu = true;
