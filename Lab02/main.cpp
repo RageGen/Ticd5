@@ -1,10 +1,10 @@
 #include "Func.hpp"
 using namespace std;
 using namespace ZDA;
-int main()
+int main(int argc,const char* argv[])
 {
-	FilesInput();
-	InputFile();
+	FilesInput(argv[1],argv[2]);
+	InputFile(argv[3]);
 	system("cls");
 	int CheckMenu = 0;
 	const int ItemsNumber = 5;

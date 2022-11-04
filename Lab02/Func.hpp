@@ -14,4 +14,4 @@ bool PrintData();
 void ContunieOrNot();
 void ZapisOutput(string filename);
 void ZapisInput(string filename);
-void FilesInput();
+void FilesInput(const char* a,const char* b);

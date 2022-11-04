@@ -11,12 +11,11 @@ SingleList* list3_reverse = new SingleList();
 SingleList* result = new SingleList();
 string fileOtput;
 string fileInput;
-void FilesInput()
+void FilesInput(const char* input,const char* otput)
 {
-	cout << "Input file: " << endl;
-	cin >> fileInput;
-	cout << "Otput file: " << endl;
-	cin >> fileOtput;
+	
+	fileInput=input;
+	fileOtput=otput;
 }
 bool InputDataFromText2(string filename)
 {

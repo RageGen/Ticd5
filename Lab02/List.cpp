@@ -1,10 +1,9 @@
 #pragma once
 #include "List.hpp"
 string fileErr;
-void InputFile()
+void InputFile(const char* fileror)
 {
-    cout << "Error file: " << endl;
-    cin >> fileErr;
+    fileErr = fileror;
 }
 
 void WriteErrorsIntoFile1() {

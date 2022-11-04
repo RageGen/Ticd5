@@ -32,4 +32,4 @@ public:
     void PrintListRecurrently(Node*);
     void DeleteList(Node*);
 };
-void InputFile();
+void InputFile(const char* c);
